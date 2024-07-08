@@ -156,7 +156,8 @@ function App() {
         </div>
       </div>
       <div className="bg-white text-blue-600 py-2 px-4 mt-4 rounded-lg border-2 border-blue-400">
-        Fatih Tezcan &copy; {new Date().getFullYear()} All rights are reserved.
+        <p>Fatih Tezcan &copy; {parseInt(new Date().getFullYear() - 30)}.</p>
+        <p>This site uses the Google Gemini API</p>
       </div>
     </div>
   );
