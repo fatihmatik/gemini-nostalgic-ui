@@ -59,13 +59,13 @@ function App() {
 
   return (
     <div className="flex flex-col items-center p-4 gap-4 bg-gradient-to-r from-teal-200 to-teal-500">
-      <div className="w-5/6 bg-white border-4 border-blue-400 p-4 flex flex-col shadow-lg rounded-lg">
-        <div className="flex justify-between items-center mb-4">
-          <div className="flex justify-between items-end space-x-4 w-[57%]">
+      <div className="w-full max-w-4xl bg-white border-4 border-blue-400 p-4 flex flex-col shadow-lg rounded-lg">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-4">
+          <div className="flex flex-col md:flex-row justify-between items-end space-x-4 w-full md:w-[57%]">
             <h1 className="text-3xl font-bold text-blue-400">{modelType}</h1>
-            <img src={geminiLogo} alt="gemini-logo" className="w-48 h-auto  " />
+            <img src={geminiLogo} alt="gemini-logo" className="w-48 h-auto" />
           </div>
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-4 w-full md:w-auto">
             <div>
               <label
                 htmlFor="modelType"
@@ -77,7 +77,7 @@ function App() {
                 id="modelType"
                 value={modelType}
                 onChange={(e) => setModelType(e.target.value)}
-                className="bg-gray-200 border-2 border-blue-400 text-black p-2 rounded-lg shadow-inner"
+                className="bg-gray-200 border-2 border-blue-400 text-black p-2 rounded-lg shadow-inner w-full"
               >
                 <option value="gemini-1.5-pro">Gemini 1.5 Pro</option>
                 <option value="gemini-1.5-flash">Gemini 1.5 Flash</option>
@@ -95,7 +95,7 @@ function App() {
                 id="temperature"
                 value={temperature}
                 onChange={handleTemperatureChange}
-                className="bg-gray-200 border-2 border-blue-400 text-black p-2 rounded-lg shadow-inner"
+                className="bg-gray-200 border-2 border-blue-400 text-black p-2 rounded-lg shadow-inner w-full"
                 step="0.1"
                 min="0"
                 max={modelType === "gemini-1.5-pro" ? "2" : "1"}
@@ -103,7 +103,7 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col space-y-2 mb-4 border-2 border-blue-400 p-2 bg-gray-200 h-[512px] overflow-y-auto">
+        <div className="flex flex-col space-y-2 mb-4 border-2 border-blue-400 p-2 bg-gray-200 h-96 md:h-[512px] overflow-y-auto">
           {error && (
             <div className="text-red-500 text-center mb-4 font-bold">
               {error}
@@ -140,7 +140,7 @@ function App() {
             ))
           )}
         </div>
-        <div className="flex gap-2">
+        <div className="flex flex-col md:flex-row gap-2">
           <textarea
             value={prompt}
             onChange={(event) => setPrompt(event.target.value)}
